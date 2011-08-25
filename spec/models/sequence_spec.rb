@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe 'New sequence' do
-  before do
-    MongoMapper.database.collections.select {|c| c.name !~ /system/ }.each(&:drop)
-  end
-
   let(:sequence_name) {'new sequence'}
   it 'should get 1 as next value' do
     Sequence.for(sequence_name).next.should == 1

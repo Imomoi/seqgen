@@ -19,6 +19,10 @@ class Sequence
     Sequence.collection.find_and_modify(query)['value']
   end
 
+  def as_json
+    value.as_json
+  end
+
   extend ClassMethods
 end
 

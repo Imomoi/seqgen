@@ -16,5 +16,8 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
   config.mock_with :rspec
-end
 
+  config.after(:each) {
+  	MongoMapper.database.collections.select {|c| c.name !~ /system/ }.each(&:drop)
+  }
+end

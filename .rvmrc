@@ -1,2 +1,1 @@
-rvm gemset create seqgen
-rvm use 1.9.2@seqgen
+rvm gemset use --create 1.9.2@seqgen

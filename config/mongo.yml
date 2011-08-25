@@ -12,7 +12,4 @@ test:
 
 # set these environment variables on your prod server
 production:
-  <<: *defaults
-  database: seq_gen
-  username: <%= ENV['MONGO_USERNAME'] %>
-  password: <%= ENV['MONGO_PASSWORD'] %>
+  uri: <%= ENV['MONGOHQ_URL'] || 'mongodb://127.0.0.1:27017/seq_gen_development' %>

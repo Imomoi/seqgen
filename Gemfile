@@ -1,39 +1,30 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.1.0.rc5'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'uglifier'
+end
 
-gem 'mongo_mapper', :git => 'git://github.com/jnunemaker/mongomapper.git', :branch => 'rails3'
+gem 'unicorn'
+
+gem 'jquery-rails'
+
+gem 'mongo_mapper'
 gem 'bson_ext'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+gem 'rspec-rails', :group => [:development, :test]
 
-# Deploy with Capistrano
-# gem 'capistrano'
+group :test do
+  # Pretty printed test output
+  gem 'turn', :require => false
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'fakeweb'
 
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-group :development do
-#   gem 'webrat'
+  gem 'rb-inotify', :require => false # For guard and Linux
+  gem 'libnotify', :require => false # For guard and Linux
 end
-
-group :test, :development do
-  gem 'rspec'
-  gem 'rspec-rails', '~> 2.4'
-  gem 'shoulda'
-end
-
